@@ -7,9 +7,14 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock x:Name="txtTest" HorizontalAlignment="Left" Margin="195,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="80" Width="257"/>
-        <Button x:Name="btnTest" Content="テスト" HorizontalAlignment="Left" Margin="287,194,0,0" VerticalAlignment="Top" Click="btnTest_Click"/>
-
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,0,0,0">
+        <TextBlock x:Name="txtTest" HorizontalAlignment="Left" Margin="318,89,0,0" TextWrapping="Wrap" Text="{Binding Value, ElementName=Slider1}" VerticalAlignment="Top" Height="43" Width="257" FontSize="32" Canvas.ZIndex="1" RenderTransformOrigin="0.5,0.5" TextAlignment="Center" >
+            <TextBlock.RenderTransform>
+                <CompositeTransform Rotation="{Binding Value, ElementName=Slider1}"/>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <Ellipse x:Name="Ellipse1" Fill="Red" HorizontalAlignment="Left" Margin="83,59,0,0" Stroke="Black" VerticalAlignment="Top" Width="{Binding Value, ElementName=Slider1}" Height="{Binding Value, ElementName=Slider1}"/>
+        <Slider x:Name="Slider1" HorizontalAlignment="Center" Height="38" VerticalAlignment="Top" Width="360" Maximum="360" Margin="0,320,0,0"/>
+        <Rectangle Fill="Blue" HorizontalAlignment="Left" Margin="147,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="{Binding Value, ElementName=Slider1}" Height="49"/>
     </Grid>
 </Page>
